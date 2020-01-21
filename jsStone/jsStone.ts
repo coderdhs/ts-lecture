@@ -40,7 +40,7 @@ let turn = true; // true면 내턴, false면 니턴
 function deckToField(data: Card, turn: boolean) {
   const target = turn ? me : opponent; // 조건 ? 참 : 거짓;
   const currentCost = Number(target.cost.textContent);
-  if (currentCost < data.cost) {
+  if (currentCost < data.cost!) {
     return "end";
   }
   const idx = target.deckData.indexOf(data);
@@ -49,7 +49,7 @@ function deckToField(data: Card, turn: boolean) {
   redrawField(target);
   redrawDeck(target);
   data.field = true;
-  target.cost.textContent = currentCost - data.cost;
+  target.cost.textContent = String(currentCost - data.cost!);
 }
 
 function redrawField(target: Player) {

@@ -35,7 +35,7 @@ function deckToField(data, turn) {
     redrawField(target);
     redrawDeck(target);
     data.field = true;
-    target.cost.textContent = currentCost - data.cost;
+    target.cost.textContent = String(currentCost - data.cost);
 }
 function redrawField(target) {
     target.field.innerHTML = "";
